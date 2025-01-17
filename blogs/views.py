@@ -1,4 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import ListView
 
-def blog_list_view(request):
-    return render(request, 'blog-list-sidebar-left.html')
+from blogs.models import BlogModel
+
+
+class BlogListView(ListView):
+    template_name = 'blog-list-sidebar-left.html'
+    model = BlogModel
+    context_object_name = 'blogs'
