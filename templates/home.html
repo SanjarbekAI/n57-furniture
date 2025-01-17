@@ -58,7 +58,7 @@
 
             <!-- logo -->
             <div class="mobile-logo">
-                <a href="home3.html">
+                <a href="home.html">
                     <img class="logo-mobile img-fluid" src="{% static 'img/home/logo-mobie.png' %}"
                          alt="Prestashop_Furnitica">
                 </a>
@@ -93,13 +93,13 @@
                                 <tbody>
                                 <tr>
                                     <td class="product-image">
-                                        <a href="product-detail.html">
+                                        <a href="shop/product-detail.html">
                                             <img src="{% static 'img/product/5.jpg' %}" alt="Product">
                                         </a>
                                     </td>
                                     <td>
                                         <div class="product-name">
-                                            <a href="product-detail.html">Organic Strawberry Fruits</a>
+                                            <a href="shop/product-detail.html">Organic Strawberry Fruits</a>
                                         </div>
                                         <div>
                                             2 x
@@ -120,8 +120,8 @@
                                 <tr>
                                     <td colspan="3" class="d-flex justify-content-center">
                                         <div class="cart-button">
-                                            <a href="product-cart.html" title="View Cart">View Cart</a>
-                                            <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                            <a href="shop/product-cart.html" title="View Cart">View Cart</a>
+                                            <a href="shop/product-checkout.html" title="Checkout">Checkout</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -151,7 +151,7 @@
                                             <a href="home2.html" title="Home Page 2">Home Page 2</a>
                                         </li>
                                         <li class="item">
-                                            <a href="home3.html" title="Home Page 3">Home Page 3</a>
+                                            <a href="home.html" title="Home Page 3">Home Page 3</a>
                                         </li>
                                         <li class="item">
                                             <a href="home4.html" title="Home Page 4">Home Page 4</a>
@@ -170,7 +170,7 @@
                                 <div class="dropdown-menu">
                                     <ul>
                                         <li class="item">
-                                            <a href="blog-list-sidebar-left.html" title="Blog List (Sidebar Left)">Blog
+                                            <a href="blogs/blog-list.html" title="Blog List (Sidebar Left)">Blog
                                                 List (Sidebar Left)</a>
                                         </li>
                                         <li class="item">
@@ -190,7 +190,7 @@
                                                 (No Sidebar)</a>
                                         </li>
                                         <li class="item">
-                                            <a href="blog-detail.html" title="Blog Detail">Blog Detail</a>
+                                            <a href="blogs/blog-detail.html" title="Blog Detail">Blog Detail</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -215,7 +215,7 @@
                                                                         Grid (Sidebar Right)</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="product-list-sidebar-left.html">Product
+                                                                    <a href="shop/product-list.html">Product
                                                                         List (Sidebar left) </a>
                                                                 </li>
                                                             </ul>
@@ -226,7 +226,7 @@
                                                         <div class="menu-content">
                                                             <ul>
                                                                 <li>
-                                                                    <a href="product-detail.html">Product Detail
+                                                                    <a href="shop/product-detail.html">Product Detail
                                                                         (Sidebar Left)</a>
                                                                 </li>
                                                                 <li>
@@ -240,10 +240,10 @@
                                                         <div class="menu-content">
                                                             <ul>
                                                                 <li>
-                                                                    <a href="404.html">404 Page</a>
+                                                                    <a href="pages/404.html">404 Page</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="about-us.html">About Us Page</a>
+                                                                    <a href="pages/about-us.html">About Us Page</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -255,7 +255,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="contact.html" class="parent">{% trans 'Contact US' %}</a>
+                                <a href="pages/contact.html" class="parent">{% trans 'Contact US' %}</a>
                             </li>
                         </ul>
                     </div>
@@ -276,34 +276,34 @@
                         <div id="acount" class="collapse">
                             <div class="account-list-content">
                                 <div>
-                                    <a class="login" href="user-acount.html" rel="nofollow"
+                                    <a class="login" href="auth/user-acount.html" rel="nofollow"
                                        title="Log in to your customer account">
                                         <i class="fa fa-cog"></i>
                                         <span>My Account</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="login" href="user-login.html" rel="nofollow"
+                                    <a class="login" href="auth/user-login.html" rel="nofollow"
                                        title="Log in to your customer account">
                                         <i class="fa fa-sign-in"></i>
                                         <span>Sign in</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="register" href="user-register.html" rel="nofollow"
+                                    <a class="register" href="auth/user-register.html" rel="nofollow"
                                        title="Register Account">
                                         <i class="fa fa-user"></i>
                                         <span>Register Account</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="check-out" href="product-checkout.html" rel="nofollow" title="Checkout">
+                                    <a class="check-out" href="shop/product-checkout.html" rel="nofollow" title="Checkout">
                                         <i class="fa fa-check" aria-hidden="true"></i>Checkout
                                     </a>
                                 </div>
 
                                 <div class="link_wishlist">
-                                    <a href="user-wishlist.html" title="My Wishlists">
+                                    <a href="shop/user-wishlist.html" title="My Wishlists">
                                         <i class="fa fa-heart"></i>
                                         <span>My Wishlists</span>
                                     </a>
@@ -421,7 +421,7 @@
                             </div>
                         </div>
                         <div id="logo">
-                            <a href="home3.html">
+                            <a href="home.html">
                                 <img src="{% static 'img/home/logo.png' %}" alt="logo">
                             </a>
                         </div>
@@ -482,13 +482,13 @@
                                         <tbody>
                                         <tr>
                                             <td class="product-image">
-                                                <a href="product-detail.html">
+                                                <a href="shop/product-detail.html">
                                                     <img src="{% static 'img/product/5.jpg' %}" alt="Product">
                                                 </a>
                                             </td>
                                             <td>
                                                 <div class="product-name">
-                                                    <a href="product-detail.html">Organic Strawberry Fruits</a>
+                                                    <a href="shop/product-detail.html">Organic Strawberry Fruits</a>
                                                 </div>
                                                 <div>
                                                     2 x
@@ -508,8 +508,8 @@
                                         <tr>
                                             <td colspan="3" class="d-flex justify-content-center">
                                                 <div class="cart-button">
-                                                    <a href="product-cart.html" title="View Cart">View Cart</a>
-                                                    <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                                    <a href="shop/product-cart.html" title="View Cart">View Cart</a>
+                                                    <a href="shop/product-checkout.html" title="Checkout">Checkout</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1161,7 +1161,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/6.jpg' %}"
                                                                          alt="img">
@@ -1184,7 +1184,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -1230,7 +1230,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/10.jpg' %}"
                                                                          alt="img">
@@ -1253,7 +1253,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -1299,7 +1299,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/16.jpg' %}"
                                                                          alt="img">
@@ -1321,7 +1321,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -1370,7 +1370,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/6.jpg' %}"
                                                                          alt="img">
@@ -1393,7 +1393,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -1439,7 +1439,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/10.jpg' %}"
                                                                          alt="img">
@@ -1462,7 +1462,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -1508,7 +1508,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/16.jpg' %}"
                                                                          alt="img">
@@ -1530,7 +1530,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -1579,7 +1579,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/6.jpg' %}"
                                                                          alt="img">
@@ -1602,7 +1602,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -1648,7 +1648,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/10.jpg' %}"
                                                                          alt="img">
@@ -1671,7 +1671,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -1717,7 +1717,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/16.jpg' %}"
                                                                          alt="img">
@@ -1739,7 +1739,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -1806,7 +1806,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid"
                                                                          src="{% static 'img/product/1.jpg' %}"
                                                                          alt="img">
@@ -1821,7 +1821,7 @@
                                                                 </div>
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="product-group-price">
@@ -1856,7 +1856,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid"
                                                                          src="{% static 'img/product/3.jpg' %}"
                                                                          alt="img">
@@ -1871,7 +1871,7 @@
                                                                         <div class="seconds"></div>
                                                                     </div>
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="product-group-price">
@@ -1908,7 +1908,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid"
                                                                          src="{% static 'img/product/5.jpg' %}"
                                                                          alt="img">
@@ -1923,7 +1923,7 @@
                                                                         <div class="seconds"></div>
                                                                     </div>
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="product-group-price">
@@ -1960,7 +1960,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid"
                                                                          src="{% static 'img/product/1.jpg' %}"
                                                                          alt="img">
@@ -1975,7 +1975,7 @@
                                                                 </div>
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="product-group-price">
@@ -2012,7 +2012,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid"
                                                                          src="{% static 'img/product/3.jpg' %}"
                                                                          alt="img">
@@ -2027,7 +2027,7 @@
                                                                         <div class="seconds"></div>
                                                                     </div>
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="product-group-price">
@@ -2064,7 +2064,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid"
                                                                          src="{% static 'img/product/5.jpg' %}"
                                                                          alt="img">
@@ -2079,7 +2079,7 @@
                                                                         <div class="seconds"></div>
                                                                     </div>
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="product-group-price">
@@ -2151,7 +2151,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/6.jpg' %}"
                                                                          alt="img">
@@ -2174,7 +2174,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -2220,7 +2220,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/10.jpg' %}"
                                                                          alt="img">
@@ -2243,7 +2243,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -2289,7 +2289,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/16.jpg' %}"
                                                                          alt="img">
@@ -2311,7 +2311,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -2360,7 +2360,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/6.jpg' %}"
                                                                          alt="img">
@@ -2383,7 +2383,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -2429,7 +2429,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/10.jpg' %}"
                                                                          alt="img">
@@ -2452,7 +2452,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -2498,7 +2498,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/16.jpg' %}"
                                                                          alt="img">
@@ -2520,7 +2520,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -2569,7 +2569,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/6.jpg' %}"
                                                                          alt="img">
@@ -2592,7 +2592,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -2638,7 +2638,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/10.jpg' %}"
                                                                          alt="img">
@@ -2661,7 +2661,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -2707,7 +2707,7 @@
                                                     <div class="item text-center">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container">
-                                                                <a href="product-detail.html">
+                                                                <a href="shop/product-detail.html">
                                                                     <img class="img-fluid image-cover"
                                                                          src="{% static 'img/product/16.jpg' %}"
                                                                          alt="img">
@@ -2729,7 +2729,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo non
+                                                                        <a href="shop/product-detail.html">Nulla et justo non
                                                                             augue</a>
                                                                     </div>
                                                                     <div class="rating">
@@ -3812,7 +3812,7 @@
                                         <a href="home2.html" title="Home Page 2">Home Page 2</a>
                                     </li>
                                     <li class="item">
-                                        <a href="home3.html" title="Home Page 3">Home Page 3</a>
+                                        <a href="home.html" title="Home Page 3">Home Page 3</a>
                                     </li>
                                     <li class="item">
                                         <a href="home4.html" title="Home Page 4">Home Page 4</a>
@@ -3835,7 +3835,7 @@
                             <div class="subCategory collapse" id="blog" aria-expanded="true" role="status">
                                 <ul>
                                     <li class="item">
-                                        <a href="blog-list-sidebar-left.html" title="Blog List (Sidebar Left)">Blog List
+                                        <a href="blogs/blog-list.html" title="Blog List (Sidebar Left)">Blog List
                                             (Sidebar Left)</a>
                                     </li>
                                     <li class="item">
@@ -3855,7 +3855,7 @@
                                             Sidebar)</a>
                                     </li>
                                     <li class="item">
-                                        <a href="blog-detail.html" title="Blog Detail">Blog Detail</a>
+                                        <a href="blogs/blog-detail.html" title="Blog Detail">Blog Detail</a>
                                     </li>
                                 </ul>
                             </div>
@@ -3886,7 +3886,7 @@
                                                                     (Sidebar Right)</a>
                                                             </li>
                                                             <li>
-                                                                <a href="product-list-sidebar-left.html">Product List
+                                                                <a href="shop/product-list.html">Product List
                                                                     (Sidebar Left) </a>
                                                             </li>
                                                         </ul>
@@ -3897,7 +3897,7 @@
                                                     <div class="menu-content">
                                                         <ul>
                                                             <li>
-                                                                <a href="product-detail.html">Product Detail (Sidebar
+                                                                <a href="shop/product-detail.html">Product Detail (Sidebar
                                                                     Left)</a>
                                                             </li>
                                                             <li>
@@ -3911,10 +3911,10 @@
                                                     <div class="menu-content">
                                                         <ul>
                                                             <li>
-                                                                <a href="404.html">404 Page</a>
+                                                                <a href="pages/404.html">404 Page</a>
                                                             </li>
                                                             <li>
-                                                                <a href="about-us.html">About Us Page</a>
+                                                                <a href="pages/about-us.html">About Us Page</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -3926,7 +3926,7 @@
                             </div>
                         </li>
                         <li class="item has-sub">
-                            <a href="contact.html" title="Contact us">
+                            <a href="pages/contact.html" title="Contact us">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>Contact us</a>
                         </li>
                     </ul>
