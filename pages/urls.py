@@ -5,5 +5,5 @@ from pages.views import home_page_view
 app_name = "pages"
 
 urlpatterns = [
-    path('', home_page_view)
+    path('', home_page_view, name='home')
 ]

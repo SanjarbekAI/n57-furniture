@@ -15,5 +15,5 @@ def get_lang_url(request, lang):
 def get_lang_flag(lang):
     if lang == "uz":
         return "🇺🇿"
-    return "img/home/lg1.jpg"
+    return "🇺🇸"
 
