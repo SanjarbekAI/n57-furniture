@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.views.generic import TemplateView, ListView
 
 from products.models import *
@@ -8,6 +9,34 @@ class ProductListView(ListView):
     model = ProductModel
     context_object_name = "products"
     paginate_by = 1
+
+    def get_queryset(self):
+        products = ProductModel.objects.all()
+        cat = self.request.GET.get('cat')
+        size = self.request.GET.get('size')
+        brand = self.request.GET.get('brand')
+        color = self.request.GET.get('color')
+        tag = self.request.GET.get('tag')
+        q = self.request.GET.get('q')
+        sort = self.request.GET.get('sort')
+        if cat:
+            products = products.filter(categories=cat)
+        if size:
+            products = products.filter(sizes__in=size)
+        if brand:
+            products = products.filter(brands=brand)
+        if color:
+            products = products.filter(colors=color)
+        if tag:
+            products = products.filter(tags=tag)
+        if q:
+            products = products.filter(
+                Q(title__icontains=q) | Q(short_description__icontains=q)
+            )
+        if sort in ('title', '-title', 'price', '-price',):
+            products = products.order_by(sort)
+
+        return products
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

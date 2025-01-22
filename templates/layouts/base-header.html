@@ -26,9 +26,9 @@
         <!-- search -->
         <div id="mobile_search" class="d-flex">
             <div id="mobile_search_content">
-                <form method="get" action="#">
+                <form method="get" action="{% url 'products:list' %}">
 
-                    <input type="text" name="s" value="" placeholder="Search">
+                    <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search">
                     <button type="submit">
                         <i class="fa fa-search"></i>
                     </button>
@@ -221,13 +221,12 @@
                         </ul>
                     </div>
                 </div>
-
                 <!-- search and acount -->
                 <div class="col-sm-5 col-md-5 d-flex align-items-center justify-content-end" id="search_widget">
-                    <form method="get" action="#">
-
+                    <form method="get" action="{% url 'products:list' %}">
                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                        <input type="text" name="s" value="" placeholder="Search" class="ui-autocomplete-input"
+                        <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search"
+                               class="ui-autocomplete-input"
                                autocomplete="off">
                         <button type="submit">
                             <i class="fa fa-search"></i>

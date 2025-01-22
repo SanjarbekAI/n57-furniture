@@ -49,12 +49,13 @@
                                                         <i class="zmdi zmdi-minus"></i>
                                                         <i class="zmdi zmdi-plus"></i>
                                                     </span>
-                                                            <a class="cateItem" href="#">{{ category.title }}</a>
+                                                            <a class="cateItem"
+                                                               onclick="addUrlParameter('cat', {{ category.id }})">{{ category.title }}</a>
                                                             <div class="subCategory collapse" id="{{ category.id }}"
                                                                  aria-expanded="true" role="status">
                                                                 {% for child in category.children.all %}
                                                                     <div class="cateTitle">
-                                                                        <a href="#"
+                                                                        <a onclick="addUrlParameter('t', {{ child.id }})"
                                                                            class="cateItem">{{ child.title }}</a>
                                                                     </div>
                                                                 {% endfor %}
@@ -77,7 +78,7 @@
                                                                 <input type="checkbox">
                                                                 <span class="checkmark"></span>
                                                             </label>
-                                                            <a href="#">
+                                                            <a onclick="addUrlParameter('size', {{ size.id }})">
                                                                 <b>{{ size.title }}</b>
                                                                 <span class="quantity">({{ size.products.count }})</span>
                                                             </a>
@@ -94,7 +95,7 @@
                                                                 <input type="checkbox">
                                                                 <span class="checkmark"></span>
                                                             </label>
-                                                            <a href="#">
+                                                            <a onclick="addUrlParameter('brand', {{ brand.id }})">
                                                                 <b>{{ brand.name }}</b>
                                                                 <span class="quantity">({{ brand.products.count }})</span>
                                                             </a>
@@ -122,24 +123,25 @@
                                                 <h3 class="title-product">By Color</h3>
                                                 {% for color in colors %}
                                                     <div>
-                                                        <span  class="left">
-                                                        <label style="color: {{ color.0.code }}">
-                                                            o
+                                                        <span class="left">
+                                                        <label style="background-color: {{ color.0.code }}">
                                                         </label>
-                                                        <a  href="#">
-                                                            <span >{{ color.0.title }}
+                                                        <a onclick="addUrlParameter('color', {{ color.0.id }})">
+                                                            <span>{{ color.0.title }}
                                                                 <span>({{ color.0.products.count }})</span>
                                                             </span>
                                                         </a>
                                                     </span>
-                                                        <span class="right">
-                                                        <label style="color: {{ color.1.code }}">o</label>
-                                                        <a href="#">
+                                                        {% if color.1 %}
+                                                            <span class="right">
+                                                        <label style="background-color: {{ color.1.code }}"></label>
+                                                        <a onclick="addUrlParameter('color', {{ color.1.id }})">
                                                             <span>{{ color.1.title }}
                                                                 <span>({{ color.1.products.count }})</span>
                                                             </span>
                                                         </a>
                                                     </span>
+                                                        {% endif %}
                                                     </div>
                                                 {% endfor %}
                                             </div>
@@ -152,55 +154,13 @@
                                             </div>
                                             <div class="block-content">
                                                 <ul class="listSidebarBlog list-unstyled">
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Hot Trend">Hot
-                                                            Trend</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#"
-                                                           title="Show products matching tag Jewelry">Jewelry</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="man.html"
-                                                           title="Show products matching tag Man">Man</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Party">Party</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#"
-                                                           title="Show products matching tag SamSung">SamSung</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shirt Dresses">Shirt
-                                                            Dresses</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shoes">Shoes</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Summer">Summer</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#"
-                                                           title="Show products matching tag Sweaters">Sweaters</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Winter">Winter</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Woman">Woman</a>
-                                                    </li>
+                                                    {% for tag in tags %}
+                                                        <li>
+                                                            <a onclick="addUrlParameter('tag', {{ tag.id }})"
+                                                               title="Show products matching tag Hot Trend">Hot
+                                                                {{ tag.title }}</a>
+                                                        </li>
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>
@@ -227,12 +187,13 @@
                                                 <div class="col col-xs-12">
                                                     <div class="d-flex sort-by-row justify-content-end">
                                                         <div class="products-sort-order dropdown">
-                                                            <select class="select-title">
+                                                            <select onchange="addUrlParameter('sort', this.value)"
+                                                                    class="select-title">
                                                                 <option value="">Sort by</option>
-                                                                <option value="">Name, A to Z</option>
-                                                                <option value="">Name, Z to A</option>
-                                                                <option value="">Price, low to high</option>
-                                                                <option value="">Price, high to low</option>
+                                                                <option value="title">Name, A to Z</option>
+                                                                <option value="-title">Name, Z to A</option>
+                                                                <option value="price">Price, low to high</option>
+                                                                <option value="-price">Price, high to low</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -400,14 +361,14 @@
                                             <div class="js-product-list-top ">
                                                 <div class="d-flex justify-content-around row">
                                                     <div class="showing col col-xs-12">
-                                                        <span>SHOWING {{ page_obj.number }}-20 OF {{ page_obj.paginator.count }} ITEM(S)</span>
+                                                        <span>SHOWING {{ page_obj.start_index }}-{{ page_obj.end_index }} OF {{ page_obj.paginator.count }} ITEM(S)</span>
                                                     </div>
                                                     <div class="page-list col col-xs-12">
                                                         <ul>
                                                             {% if page_obj.has_previous %}
                                                                 <li>
                                                                     <a rel="prev"
-                                                                       href="?page={{ page_obj.previous_page_number }}"
+                                                                       onclick="addUrlParameter('page', {{ page_obj.previous_page_number }})"
                                                                        class="previous disabled js-search-link">
                                                                         Previous
                                                                     </a>
@@ -415,7 +376,8 @@
                                                             {% endif %}
                                                             {% for page in page_obj.paginator.page_range %}
                                                                 <li class="current active">
-                                                                    <a rel="nofollow" href="?page={{ page }}"
+                                                                    <a rel="nofollow"
+                                                                       onclick="addUrlParameter('page', {{ page }})"
                                                                        class="disabled js-search-link">
                                                                         {{ page }}
                                                                     </a>
@@ -424,7 +386,7 @@
                                                             {% if page_obj.has_next %}
                                                                 <li>
                                                                     <a rel="next"
-                                                                       href="?page={{ page_obj.next_page_number }}"
+                                                                       onclick="addUrlParameter('page', {{ page_obj.next_page_number }})"
                                                                        class="next disabled js-search-link">
                                                                         Next
                                                                     </a>
@@ -446,4 +408,17 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block extra_js %}
+    <script>
+        function addUrlParameter(name, value) {
+            let searchParams = new URLSearchParams(window.location.search)
+            if (searchParams.has(name) && searchParams.get(name) == value) {
+                searchParams.delete(name)
+            } else {
+                searchParams.set(name, value)
+            }
+            window.location.search = searchParams.toString()
+        }
+    </script>
 {% endblock %}
