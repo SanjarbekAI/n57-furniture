@@ -286,8 +286,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.html">Nulla et justo
-                                                                            augue</a>
+                                                                        <a href="product-detail.html">{{ product.title }}</a>
                                                                     </div>
                                                                     <div class="rating">
                                                                         <div class="star-content">
@@ -300,7 +299,7 @@
                                                                     </div>
                                                                     <div class="product-group-price">
                                                                         <div class="product-price-and-shipping">
-                                                                            <span class="price">£20.08</span>
+                                                                            <span class="price">£{{ product.price }}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -319,55 +318,11 @@
                                             </div>
                                             <div class="block-content">
                                                 <ul class="listSidebarBlog list-unstyled">
+                                                    {% for tag in product.tags.all %}
                                                     <li>
-                                                        <a href="#" title="Show products matching tag Hot Trend">Hot
-                                                            Trend</a>
+                                                        <a href="" title="Show products matching tag Woman">{{ tag.title }}</a>
                                                     </li>
-
-                                                    <li>
-                                                        <a href="#"
-                                                           title="Show products matching tag Jewelry">Jewelry</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="man.html"
-                                                           title="Show products matching tag Man">Man</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Party">Party</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#"
-                                                           title="Show products matching tag SamSung">SamSung</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shirt Dresses">Shirt
-                                                            Dresses</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shoes">Shoes</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Summer">Summer</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#"
-                                                           title="Show products matching tag Sweaters">Sweaters</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Winter">Winter</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Woman">Woman</a>
-                                                    </li>
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>
@@ -380,53 +335,28 @@
                                                     <div class="page-content" id="content">
                                                         <div class="images-container">
                                                             <div class="js-qv-mask mask tab-content border">
-                                                                <div id="item1" class="tab-pane fade active in show">
-                                                                    <img src="{% static 'img/product/1.jpg' %}"
-                                                                         alt="img">
-                                                                </div>
-                                                                <div id="item2" class="tab-pane fade">
-                                                                    <img src="{% static 'img/product/2.jpg' %}"
-                                                                         alt="img">
-                                                                </div>
-                                                                <div id="item3" class="tab-pane fade">
-                                                                    <img src="{% static 'img/product/3.jpg' %}"
-                                                                         alt="img">
-                                                                </div>
-                                                                <div id="item4" class="tab-pane fade">
-                                                                    <img src="{% static 'img/product/5.jpg' %}"
-                                                                         alt="img">
-                                                                </div>
+                                                                {% for image in product.images.all %}
+                                                                    <div id="item{{ forloop.counter }}"
+                                                                         class="tab-pane fade {% if forloop.counter == 1 %}active in show{% endif %}">
+                                                                        <img src="{{ image.image.url }}"
+                                                                             alt="img">
+                                                                    </div>
+                                                                {% endfor %}
                                                                 <div class="layer hidden-sm-down" data-toggle="modal"
                                                                      data-target="#product-modal">
                                                                     <i class="fa fa-expand"></i>
                                                                 </div>
                                                             </div>
                                                             <ul class="product-tab nav nav-tabs d-flex">
-                                                                <li class="active col">
-                                                                    <a href="#item1" data-toggle="tab"
-                                                                       aria-expanded="true" class="active show">
-                                                                        <img src="{% static 'img/product/1.jpg' %}"
+                                                                {% for image in product.images.all %}
+                                                                <li class="col {% if forloop.counter == 1 %}active{% endif %}">
+                                                                    <a href="#item{{ forloop.counter }}" data-toggle="tab"
+                                                                       aria-expanded="true" {% if forloop.counter == 1 %}class="active show"{% endif %}>
+                                                                        <img src="{{ image.image.url }}"
                                                                              alt="img">
                                                                     </a>
                                                                 </li>
-                                                                <li class="col">
-                                                                    <a href="#item2" data-toggle="tab">
-                                                                        <img src="{% static 'img/product/2.jpg' %}"
-                                                                             alt="img">
-                                                                    </a>
-                                                                </li>
-                                                                <li class="col">
-                                                                    <a href="#item3" data-toggle="tab">
-                                                                        <img src="{% static 'img/product/3.jpg' %}"
-                                                                             alt="img">
-                                                                    </a>
-                                                                </li>
-                                                                <li class="col">
-                                                                    <a href="#item4" data-toggle="tab">
-                                                                        <img src="{% static 'img/product/5.jpg' %}"
-                                                                             alt="img">
-                                                                    </a>
-                                                                </li>
+                                                                {% endfor %}
                                                             </ul>
                                                             <div class="modal fade" id="product-modal" role="dialog">
                                                                 <div class="modal-dialog">
