@@ -9,6 +9,10 @@ register = template.Library()
 def in_cart(request, pk):
     return pk in request.session.get('cart', [])
 
+@register.filter
+def in_wishlist(request, pk):
+    return pk in request.session.get('wishlist', [])
+
 
 @register.simple_tag
 def get_user_cart(request):

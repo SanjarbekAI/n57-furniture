@@ -254,15 +254,20 @@
                                                                               class="formAddToCart">
                                                                             <input type="hidden" name="id_product"
                                                                                    value="1">
-                                                                            <a class="add-to-cart" href="{% url 'orders:add-or-remove-cart' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}"
+                                                                            <a class="add-to-cart"
+                                                                               href="{% url 'orders:add-or-remove-cart' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}"
                                                                                data-button-action="add-to-cart">
-                                                                                <i {% if request|in_cart:product.id %}style="color: red"{% endif %} class="fa fa-shopping-cart"
+                                                                                <i {% if request|in_cart:product.id %}style="color: red"{% endif %}
+                                                                                   class="fa fa-shopping-cart"
                                                                                    aria-hidden="true"></i>
                                                                             </a>
                                                                         </form>
-                                                                        <a class="addToWishlist" href="#" data-rel="1"
+                                                                        <a class="addToWishlist"
+                                                                           href="{% url 'orders:add-or-remove-wishlist' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}"
+                                                                           data-rel="1"
                                                                            onclick="">
-                                                                            <i class="fa fa-heart"
+                                                                            <i {% if request|in_wishlist:product.id %}style="color: red"{% endif %}
+                                                                               class="fa fa-heart"
                                                                                aria-hidden="true"></i>
                                                                         </a>
                                                                         <a href="#" class="quick-view hidden-sm-down"

@@ -276,7 +276,7 @@
                                     </a>
                                 </div>
                                 <div class="link_wishlist">
-                                    <a href="user-wishlist.html" title="My Wishlists">
+                                    <a href="{% url 'orders:wishlist' %}" title="My Wishlists">
                                         <i class="fa fa-heart"></i>
                                         <span>My Wishlists</span>
                                     </a>
@@ -366,7 +366,7 @@
                                         <tr>
                                             <td colspan="3" class="d-flex justify-content-center">
                                                 <div class="cart-button">
-                                                    <a href="product-cart.html" title="View Cart">View Cart</a>
+                                                    <a href="{% url 'orders:cart' %}" title="View Cart">View Cart</a>
                                                     <a href="product-checkout.html" title="Checkout">Checkout</a>
                                                 </div>
                                             </td>
