@@ -24,6 +24,7 @@ urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('blogs/', include('blogs.urls', namespace='blogs')),
     path('products/', include('products.urls', namespace='products')),
+    path('orders/', include('orders.urls', namespace='orders')),
     path('', include('pages.urls', namespace='pages')),
 )
 

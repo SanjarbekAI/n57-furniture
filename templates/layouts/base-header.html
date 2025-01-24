@@ -1,4 +1,5 @@
 {% load static %}
+{% load order_tags %}
 <header>
     <!-- header left mobie -->
     <div class="header-mobile d-md-none">
@@ -326,26 +327,28 @@
                     <div class="desktop_cart">
                         <div class="blockcart block-cart cart-preview tiva-toggle">
                             <div class="header-cart tiva-toggle-btn">
-                                <span class="cart-products-count">1</span>
+                                <span class="cart-products-count">{% get_product_count request %}</span>
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             </div>
                             <div class="dropdown-content">
                                 <div class="cart-content">
                                     <table>
                                         <tbody>
+                                        {% get_user_cart request as user_cart %}
+                                        {% for product in user_cart %}
                                         <tr>
                                             <td class="product-image">
                                                 <a href="product-detail.html">
-                                                    <img src="{% static 'img/product/5.jpg' %}" alt="Product">
+                                                    <img src="{{ product.image1.url }}" alt="Product">
                                                 </a>
                                             </td>
                                             <td>
                                                 <div class="product-name">
-                                                    <a href="product-detail.html">Organic Strawberry Fruits</a>
+                                                    <a href="product-detail.html">{{ product.title }}</a>
                                                 </div>
                                                 <div>
-                                                    2 x
-                                                    <span class="product-price">£28.98</span>
+                                                    1 x
+                                                    <span class="product-price">£{{ product.price }}</span>
                                                 </div>
                                             </td>
                                             <td class="action">
@@ -354,9 +357,10 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        {% endfor %}
                                         <tr class="total">
                                             <td colspan="2">Total:</td>
-                                            <td>£92.96</td>
+                                            <td>£{% get_cart_total request %}</td>
                                         </tr>
 
                                         <tr>

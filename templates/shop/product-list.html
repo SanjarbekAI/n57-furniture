@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load order_tags %}
 {% block title %}{{ add }}{% endblock %}
 {% block body %}id="product-sidebar-left"{% endblock %}
 {% block content %}
@@ -253,9 +254,9 @@
                                                                               class="formAddToCart">
                                                                             <input type="hidden" name="id_product"
                                                                                    value="1">
-                                                                            <a class="add-to-cart" href="#"
+                                                                            <a class="add-to-cart" href="{% url 'orders:add-or-remove-cart' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}"
                                                                                data-button-action="add-to-cart">
-                                                                                <i class="fa fa-shopping-cart"
+                                                                                <i {% if request|in_cart:product.id %}style="color: red"{% endif %} class="fa fa-shopping-cart"
                                                                                    aria-hidden="true"></i>
                                                                             </a>
                                                                         </form>

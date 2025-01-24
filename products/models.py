@@ -98,6 +98,11 @@ class ProductModel(BaseModel):
         related_name='products'
     )
 
+    @staticmethod
+    def get_products_in_cart(request):
+        cart = request.session.get('cart', [])
+        products = ProductModel.objects.get(pk__in=cart)
+        return products
 
 class ProductCommentModel(BaseModel):
     comment = models.CharField(max_length=128, verbose_name=_('comment'))
