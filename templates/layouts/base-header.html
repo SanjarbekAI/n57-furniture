@@ -238,7 +238,11 @@
                         <div class="myaccount-title ">
                             <a href="#acount" data-toggle="collapse" class="acount">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>Account</span>
+                                <span>{% if request.user.is_authenticated %}
+                                    Settings
+                                {% else %}
+                                    Account
+                                {% endif %}</span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
 
@@ -336,27 +340,27 @@
                                         <tbody>
                                         {% get_user_cart request as user_cart %}
                                         {% for product in user_cart %}
-                                        <tr>
-                                            <td class="product-image">
-                                                <a href="product-detail.html">
-                                                    <img src="{{ product.image1.url }}" alt="Product">
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <div class="product-name">
-                                                    <a href="product-detail.html">{{ product.title }}</a>
-                                                </div>
-                                                <div>
-                                                    1 x
-                                                    <span class="product-price">£{{ product.price }}</span>
-                                                </div>
-                                            </td>
-                                            <td class="action">
-                                                <a class="remove" href="#">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td class="product-image">
+                                                    <a href="product-detail.html">
+                                                        <img src="{{ product.image1.url }}" alt="Product">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <div class="product-name">
+                                                        <a href="product-detail.html">{{ product.title }}</a>
+                                                    </div>
+                                                    <div>
+                                                        1 x
+                                                        <span class="product-price">£{{ product.price }}</span>
+                                                    </div>
+                                                </td>
+                                                <td class="action">
+                                                    <a class="remove" href="#">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         {% endfor %}
                                         <tr class="total">
                                             <td colspan="2">Total:</td>

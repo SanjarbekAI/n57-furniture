@@ -36,6 +36,20 @@ class LoginForm(forms.Form):
         return self.cleaned_data
 
 
+class ForgetPasswordEmailForm(forms.Form):
+    email = forms.EmailField()
+
+    def clean(self):
+        email = self.cleaned_data['email']
+        try:
+            user = UserModel.objects.get(email=email)
+            self.cleaned_data["user"] = user
+        except UserModel.DoesNotExist:
+            raise forms.ValidationError("User is not found")
+
+        return self.cleaned_data
+
+
 class ForgetPasswordForm(forms.Form):
     new_password1 = forms.CharField(max_length=128)
     mew_password2 = forms.CharField(max_length=128)
@@ -49,5 +63,3 @@ class AccountUpdateForm(forms.ModelForm):
     class Meta:
         model = UserModel
         fields = ['first_name', 'last_name', 'username', 'email']
-
-
