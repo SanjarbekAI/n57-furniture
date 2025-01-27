@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import FormView, TemplateView
 
 from users.forms import RegisterForm
@@ -36,37 +37,24 @@ class RegisterView(FormView):
         return super().form_invalid(form)
 
 
-def confirm_email(request, uid, token):
-    try:
-        user = UserModel.objects.get(id=uid)
-    except UserModel.DoesNotExist:
-        return redirect('/')
+class VerificationView(View):
+    def get(self, request, *args, **kwargs):
+        try:
+            uid = kwargs.get('uid')
+            token = kwargs.get('token')
 
-    if default_token_generator.check_token(user, token):
-        user.is_active = True
-        user.save()
-        messages.success(request, "Your email is verified!")
-        return redirect('/')
-    else:
-        messages.success(request, "Link is not correct")
-        return redirect('/')
-
-# class VerificationView(View):
-#     def get(self):
-#         try:
-#             uid = self.request.GET.get('uid')
-#             token = self.request.GET.get('token')
-#             print()
-#
-#             user = UserModel.objects.get(id=uid)
-#         except UserModel.DoesNotExist:
-#             return redirect('/')
-#
-#         if default_token_generator.check_token(user, token):
-#             user.is_active = True
-#             user.save()
-#             messages.success(self.request, "Your email is verified!")
-#             return redirect('/')
-#         else:
-#             messages.success(self.request, "Link is not correct")
-#             return redirect('/')
+            user = UserModel.objects.get(id=uid)
+        except UserModel.DoesNotExist:
+            return redirect('/')
+        try:
+            if default_token_generator.check_token(user, token):
+                user.is_active = True
+                user.save()
+                messages.success(self.request, "Your email is verified!")
+                return redirect('/')
+            else:
+                messages.success(self.request, "Link is not correct")
+                return redirect('/')
+        except Exception as e:
+            print(e)
+            return redirect('/')
