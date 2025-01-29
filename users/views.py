@@ -89,6 +89,8 @@ class LoginFormView(FormView):
             user = form.cleaned_data.get("user")
             login(request=self.request, user=user)
             messages.success(self.request, "You are successfully logged in")
+            next_url = self.request.GET.get('next', reverse_lazy("products:list"))
+            return redirect(next_url)
         else:
             self.form_invalid(form)
         return super().form_valid(form)

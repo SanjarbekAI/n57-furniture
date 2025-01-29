@@ -53,6 +53,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('in_stock', 'categories', 'brands')
     filter_horizontal = ('colors', 'sizes', 'tags', 'categories')
     inlines = [ProductImageAdmin]
+    readonly_fields = ['discount_price']
 
 
 @admin.register(ProductCommentModel)

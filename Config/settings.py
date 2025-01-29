@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from django.urls import reverse_lazy
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-66ypr!856k3#7n#e#s(fabqglu-a!!!5c+%!wg&d6q)ekr23^$'
@@ -108,3 +110,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'sanjarbekwork@gmail.com'
 EMAIL_HOST_PASSWORD = 'llzc ngfi szjs djeh'
+
+LOGIN_URL = reverse_lazy("users:login")

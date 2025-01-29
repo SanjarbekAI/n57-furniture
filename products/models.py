@@ -1,8 +1,10 @@
 from django.contrib.auth import get_user_model
+from django.core.validators import FileExtensionValidator, MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from common.models import BaseModel
+
 
 UserModel = get_user_model()
 
@@ -71,13 +73,19 @@ class ProductColorModel(BaseModel):
 
 
 class ProductModel(BaseModel):
-    image1 = models.ImageField(upload_to='products', verbose_name=_('image1'))
+    image1 = models.ImageField(upload_to='products', verbose_name=_('image1'),
+                               validators=[
+                                   FileExtensionValidator(allowed_extensions=["png"])
+                               ]
+                               )
     image2 = models.ImageField(upload_to='products', verbose_name=_('image2'))
     title = models.CharField(max_length=128, verbose_name=_('title'))
     short_description = models.TextField(verbose_name=_('short_description'))
     long_description = models.TextField(verbose_name=_('long_description'))
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_('price'))
-    discount = models.SmallIntegerField(verbose_name=_('discount'), null=True, blank=True)
+    discount = models.SmallIntegerField(
+        verbose_name=_('discount'), null=True, blank=True,
+        validators=[MaxValueValidator(100), MinValueValidator(0)])
     sku = models.CharField(max_length=7, verbose_name=_('sku'))
     in_stock = models.BooleanField(default=True, verbose_name=_('in_stock'))
     quantity = models.PositiveSmallIntegerField(verbose_name=_('quantity'))
@@ -103,6 +111,7 @@ class ProductModel(BaseModel):
         cart = request.session.get('cart', [])
         products = ProductModel.objects.get(pk__in=cart)
         return products
+
 
 class ProductCommentModel(BaseModel):
     comment = models.CharField(max_length=128, verbose_name=_('comment'))

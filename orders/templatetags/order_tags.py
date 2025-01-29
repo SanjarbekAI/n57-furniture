@@ -1,6 +1,6 @@
 from django import template
 
-from orders.utils import get_products_in_cart
+from orders.utils import get_products_in_cart, calculate_total_price
 
 register = template.Library()
 
@@ -27,7 +27,4 @@ def get_product_count(request):
 @register.simple_tag
 def get_cart_total(request):
     products = get_products_in_cart(request)
-    total = 0
-    for product in products:
-        total += product.price
-    return total
+    return calculate_total_price(products=products)

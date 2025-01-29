@@ -1,8 +1,12 @@
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView
+from django.views.generic import ListView, FormView
 
-from orders.utils import get_products_in_cart
+from orders.forms import CheckoutForm
+from orders.models import OrderModel, OrderItemModel
+from orders.utils import get_products_in_cart, calculate_total_price
 from products.models import ProductModel
 
 
@@ -50,3 +54,39 @@ class CartListView(ListView):
 
     def get_queryset(self):
         return get_products_in_cart(self.request)
+
+
+class CheckoutTemplateView(LoginRequiredMixin, FormView):
+    template_name = 'shop/product-checkout.html'
+    form_class = CheckoutForm
+    success_url = reverse_lazy("products:list")
+
+    def form_valid(self, form):
+        products = get_products_in_cart(request=self.request)
+        if len(products) == 0:
+            messages.info(self.request, "You do not have any products in your cart")
+            return redirect(reverse_lazy("products:list"))
+
+        order = OrderModel.objects.create(
+            user=self.request.user,
+            full_name=form.cleaned_data["full_name"],
+            email=form.cleaned_data["email"],
+            phone_number=form.cleaned_data["phone_number"],
+            address=form.cleaned_data["address"],
+            total_amount=calculate_total_price(products=products),
+            total_products=len(products)
+        )
+
+        for product in products:
+            OrderItemModel.objects.create(
+                product=product,
+                product_title=product.title,
+                product_price=product.price,
+                product_quantity=1,
+                order=order
+            )
+        self.request.session["cart"] = []
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)

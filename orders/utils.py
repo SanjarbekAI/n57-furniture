@@ -8,3 +8,10 @@ def get_products_in_cart(request):
         product = ProductModel.objects.get(pk=pk)
         products.append(product)
     return products
+
+
+def calculate_total_price(products):
+    total = 0
+    for product in products:
+        total += product.price
+    return total
