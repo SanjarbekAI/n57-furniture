@@ -1,12 +1,13 @@
 from pathlib import Path
 
+from decouple import config
 from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-66ypr!856k3#7n#e#s(fabqglu-a!!!5c+%!wg&d6q)ekr23^$'
+SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -108,7 +109,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'sanjarbekwork@gmail.com'
-EMAIL_HOST_PASSWORD = 'llzc ngfi szjs djeh'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 LOGIN_URL = reverse_lazy("users:login")
