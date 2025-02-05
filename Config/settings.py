@@ -9,7 +9,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['64.227.121.33']
+ALLOWED_HOSTS = ['64.227.121.33', 'ezma.uz']
 
 INSTALLED_APPS = [
     'modeltranslation',
